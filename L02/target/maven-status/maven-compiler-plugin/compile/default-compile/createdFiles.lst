@@ -1,0 +1,8 @@
+ulima\laboratorio_02\Laboratorio_02.class
+violations\DigitalProduct.class
+violations\PhysicalProduct.class
+violations\ServiceProduct.class
+violations\Product.class
+violations\User.class
+tests\ProductTest.class
+violations\PaymentProcessor.class
