@@ -350,7 +350,7 @@ classDiagram
    - Separación de interfaces (`Shippable`, `Downloadable`, `Serviceable`)
    - Uso de composición en lugar de herencia forzada
    - Redefinición de la jerarquía de clases con contratos apropiados
-   - Implementación del patrón Strategy para comportamientos específicos
+   - ~~Implementación del patrón Strategy para comportamientos específicos~~
 
 ---
 
@@ -664,7 +664,7 @@ classDiagram
    - Implementaciones concretas: `EmailNotificationService`, `FileLoggerService`, `DatabaseOrderRepository`
    - Implementaciones mock para testing: `MockNotificationService`, `MockLogger`, `MockRepository`
    - Nueva clase `OrderService` que reciba dependencias por constructor
-   - Factory o configurador para inyectar dependencias
+   - ~~Factory o configurador para inyectar dependencias~~
    - Clase de prueba que demuestre testing con mocks
 
 ---
