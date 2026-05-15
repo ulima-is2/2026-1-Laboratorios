@@ -2,8 +2,8 @@ package com.ulima.is2.ejercicio_01.problema;
 
 public class Kitchen {
 
-    public void cookMainDish(String ingredients, int time) {
-        System.out.println("Cocinando plato principal con " + ingredients);
+    public void cookMainDish(String[] ingredients, int time) {
+        System.out.println("Cocinando plato principal con " + String.join(" y ", ingredients));
         System.out.println("Tiempo de cocción: " + time + " minutos");
     }
 
