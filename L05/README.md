@@ -51,7 +51,6 @@ classDiagram
 - `MainDishCommand`, `HotDrinkCommand` y `DessertCommand`.
 - `Kitchen` como receptor de las acciones.
 - `Waiter` como invocador que ejecuta comandos.
-- Agregar un nuevo comando (`SaladCommand` o similar) para demostrar extensibilidad.
 
 ---
 
@@ -82,7 +81,6 @@ classDiagram
 - `CashPayment`, `CardPayment` y `MobilePayment`.
 - `PaymentProcessor` que permita cambiar estrategias dinámicamente.
 - Un cliente (`main`) que procese pagos usando diferentes estrategias.
-- Agregar una nueva estrategia (`CryptoPayment` o similar) para demostrar extensibilidad.
 
 ---
 
