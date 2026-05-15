@@ -18,6 +18,12 @@ El restaurante QuickServe necesita modernizar distintos procesos de su operació
 
 # Ejercicio 1: Command Pattern
 
+**Problema:**
+El `Waiter` está fuertemente acoplado a la `Kitchen`. Conoce todos los detalles de preparación (ingredientes, tiempos) y decide qué método usar, violando el Principio de Responsabilidad Única (SRP).
+
+**Solución:**
+Aplicar el patrón **Command** para desacoplar ambos. Encapsular cada orden en un objeto independiente (Comando) para que el mesero solo las ejecute sin conocer sus detalles.
+
 ### 1) Diagrama del Código Actual (Problemático):
 
 ```mermaid
@@ -39,61 +45,7 @@ classDiagram
     de cada tipo de orden"
 ```
 
-### 2) Diagrama de la Solución (Command):
-
-```mermaid
-classDiagram
-    class Command {
-        <<interface>>
-        +execute()* void
-    }
-
-    class MainDishCommand {
-        -Kitchen kitchen
-        -String ingredients
-        -int cookingTime
-        +execute() void
-    }
-
-    class HotDrinkCommand {
-        -Kitchen kitchen
-        -String drink
-        -int temperature
-        +execute() void
-    }
-
-    class DessertCommand {
-        -Kitchen kitchen
-        -String dessert
-        -String decoration
-        +execute() void
-    }
-
-    class Waiter {
-        +sendOrder(Command command) void
-    }
-
-    class Kitchen {
-        +cookMainDish(String ingredients, int time) void
-        +prepareHotDrink(String drink, int temperature) void
-        +prepareDessert(String dessert, String decoration) void
-    }
-
-    Command <|.. MainDishCommand
-    Command <|.. HotDrinkCommand
-    Command <|.. DessertCommand
-
-    MainDishCommand --> Kitchen
-    HotDrinkCommand --> Kitchen
-    DessertCommand --> Kitchen
-
-    Waiter ..> Command : executes
-
-    note for Command "✅ Cada orden encapsula
-    la solicitud y sus parámetros"
-```
-
-#### **Implementa la solución creando:**
+#### **Pistas: implementa la solución creando:**
 
 - `Command` (interface) con el método `execute()`.
 - `MainDishCommand`, `HotDrinkCommand` y `DessertCommand`.
@@ -104,6 +56,12 @@ classDiagram
 ---
 
 # Ejercicio 2: Strategy Pattern
+
+**Problema:**
+La clase `Cashier` centraliza la lógica de los distintos métodos de pago mediante múltiples `if/else`. Esto viola el Principio de Abierto/Cerrado (OCP), ya que agregar un nuevo método obliga a modificar esta clase.
+
+**Solución:**
+Aplicar el patrón **Strategy** para extraer cada método de pago en una clase independiente. Así, el procesador puede cambiar la estrategia dinámicamente sin alterar su propio código.
 
 ### 1) Diagrama del Código Actual (Problemático):
 
@@ -118,48 +76,7 @@ classDiagram
     cada tipo de pago"
 ```
 
-### 2) Diagrama de la Solución (Strategy):
-
-```mermaid
-classDiagram
-    class PaymentStrategy {
-        <<interface>>
-        +pay(double amount)* void
-    }
-
-    class CashPayment {
-        +pay(double amount) void
-    }
-
-    class CardPayment {
-        -String cardNumber
-        +pay(double amount) void
-    }
-
-    class MobilePayment {
-        -String phoneNumber
-        -String appName
-        +pay(double amount) void
-    }
-
-    class PaymentProcessor {
-        -PaymentStrategy strategy
-        +setStrategy(PaymentStrategy strategy) void
-        +process(double amount) void
-    }
-
-    PaymentStrategy <|.. CashPayment
-    PaymentStrategy <|.. CardPayment
-    PaymentStrategy <|.. MobilePayment
-
-    PaymentProcessor o-- PaymentStrategy
-
-    note for PaymentStrategy "✅ Permite cambiar
-    dinámicamente el método
-    de pago"
-```
-
-#### **Implementa la solución creando:**
+#### **Pistas: implementa la solución creando:**
 
 - `PaymentStrategy` (interface) con el método `pay(double amount)`.
 - `CashPayment`, `CardPayment` y `MobilePayment`.
