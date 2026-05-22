@@ -76,6 +76,22 @@ para <beneficio>.
 - [ ] Criterio 3
 ```
 
+### Ejemplo
+
+```markdown
+## Historia de Usuario
+
+Como usuario registrado,
+quiero iniciar sesión con mi correo y contraseña,
+para acceder a mi panel personal y ver mi progreso.
+
+## Criterios de Aceptación
+
+- [ ] El usuario puede ingresar correo y contraseña.
+- [ ] La sesión se inicia correctamente con credenciales válidas.
+- [ ] Se muestra un mensaje de error para credenciales inválidas.
+```
+
 ---
 
 # Parte 3: Completar Todas las Propiedades del Task
