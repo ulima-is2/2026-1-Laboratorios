@@ -82,15 +82,20 @@ Si tus pruebas **fallan**, significa que detectaron el cambio y el mutante fue *
 2. Ve a la carpeta `target/pit-reports/` y abre el `index.html` en tu navegador.
 3. Observa la cobertura de línea (Line Coverage) y la cobertura de mutación (Mutation Coverage).
 4. **Reto:** Cuando veas que tu Mutation Coverage no es 100%, descubre qué pruebas **faltan** en `OptimizadorCalidadVideoTest` y añádelas hasta lograr el **100% de Mutation Coverage**.
-   > **💡 Pista (¡Lee esto si te estancas!):** PITest genera mutantes que cambian las condiciones de frontera (ej. cambiar `>=` por `>`). Para matarlos a todos, necesitas crear pruebas adicionales con los **valores límite exactos** (0.0, 5.0, 10.0 y 25.0).
-   > Implementa exactamente estas pruebas:
-   > - `optimizar_anchoDeBandaCero_lanzaIllegalArgumentException` (0.0)
-   > - `optimizar_planBasicoAnchoBandaExactamente5_retorna720p` (5.0)
-   > - `optimizar_planPremiumAnchoBandaExactamente5_retorna720p` (5.0)
-   > - `optimizar_planPremiumAnchoBandaExactamente10_retorna1080p` (10.0)
-   > - `optimizar_planPremiumAnchoBandaExactamente25_retorna4K` (25.0)
-   > 
-   > ¡Añádelas y vuelve a ejecutar!
+   <details>
+   <summary><b>💡 Pista (¡Lee esto si te estancas!)</b></summary>
+   
+   PITest genera mutantes que cambian las condiciones de frontera (ej. cambiar `>=` por `>`). Para matarlos a todos, necesitas crear pruebas adicionales con los **valores límite exactos** (0.0, 5.0, 10.0 y 25.0).
+   
+   Implementa exactamente estas pruebas:
+   - `optimizar_anchoDeBandaCero_lanzaIllegalArgumentException` (0.0)
+   - `optimizar_planBasicoAnchoBandaExactamente5_retorna720p` (5.0)
+   - `optimizar_planPremiumAnchoBandaExactamente5_retorna720p` (5.0)
+   - `optimizar_planPremiumAnchoBandaExactamente10_retorna1080p` (10.0)
+   - `optimizar_planPremiumAnchoBandaExactamente25_retorna4K` (25.0)
+   
+   ¡Añádelas y vuelve a ejecutar!
+   </details>
 
 ---
 
@@ -189,3 +194,19 @@ Para probar la lógica de `GestorReproduccion`, asegúrate de completar los sigu
 ---
 
 _Recuerda: El objetivo de este laboratorio no es solo que las pruebas pasen en verde, sino escribir pruebas de alta calidad que realmente protejan al código de futuros errores._
+
+---
+
+## Criterios de Cumplimiento
+
+Para considerar este laboratorio como completado satisfactoriamente, el estudiante deberá cumplir con lo siguiente:
+
+1. **Ejercicio 1:**
+   - Implementar todas las pruebas unitarias requeridas en `OptimizadorCalidadVideoTest.java`, asegurando la evaluación de las rutas críticas y valores límite (ej. 0.0, 5.0, 10.0, 25.0).
+   - Lograr un **100% de Mutation Coverage** tras ejecutar PITest (`mvn pitest:mutationCoverage`). Todos los mutantes generados deben ser "asesinados".
+
+2. **Ejercicio 2:**
+   - Desplegar adecuadamente las anotaciones `@Mock` e `@InjectMocks` en `GestorReproduccionTest.java`.
+   - Completar exitosamente la prueba `cuentaInactiva`, validando el retorno esperado y asegurando con `verifyNoInteractions` la nula interacción con otros mocks no involucrados en este escenario temprano de falla.
+   - Completar exitosamente la prueba `reproduccionExitosa`, configurando los retornos con `when(...)` y ratificando que cada dependencia externa (Suscripción, CDN, Optimizador) fue llamada con los parámetros correctos mediante los métodos `verify(...)`.
+   - La ejecución de `mvn test` debe completarse sin errores.
