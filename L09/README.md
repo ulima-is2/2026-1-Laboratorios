@@ -171,21 +171,18 @@ Dirígete a `src/test/java/com/ulima/is2/streaming/ejercicio02/GestorReproduccio
 - Descomenta y completa las pruebas iniciales.
 - Usa `when(mock.metodo()).thenReturn(valor)` para simular respuestas específicas de los servicios según el escenario.
 - Usa `verify(mock).metodo()` o `verifyNoInteractions(mock)` para asegurar que el `GestorReproduccion` se está comportando correctamente según el caso.
-- Escribe suficientes pruebas para cubrir tanto los escenarios de error como el flujo de ejecución exitosa de `iniciarReproduccion`.
+- Completa las pruebas que se proporcionan como base, cubriendo un escenario de error y el flujo de ejecución exitosa de `iniciarReproduccion`.
 
 <details>
 <summary><b>Haz clic aquí para ver el listado de pruebas recomendado</b></summary>
 
-Para probar todos los caminos de `GestorReproduccion`, asegúrate de implementar pruebas para los siguientes escenarios utilizando *mocks* (puedes usar estos nombres u otros similares):
+Para probar la lógica de `GestorReproduccion`, asegúrate de completar los siguientes escenarios utilizando *mocks* que ya se encuentran en el código:
 
 **Escenarios de Error:**
-- `iniciarReproduccion_cuentaInactiva_retornaError`
-- `iniciarReproduccion_cdnNoDisponible_retornaError`
-- `iniciarReproduccion_urlVideoEsNula_retornaError`
-- `iniciarReproduccion_urlVideoEsVacia_retornaError`
+- `cuentaInactiva`
 
 **Escenario de Éxito:**
-- `iniciarReproduccion_todoCorrecto_retornaMensajeExito`
+- `reproduccionExitosa`
 
 </details>
 
