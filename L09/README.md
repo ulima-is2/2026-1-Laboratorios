@@ -57,21 +57,16 @@ Dirígete a `src/test/java/com/ulima/is2/streaming/ejercicio01/OptimizadorCalida
 Para garantizar el 100% de cobertura y pasar las pruebas de mutación (PITest), asegúrate de implementar las siguientes pruebas (usando estos nombres u otros similares):
 
 **Pruebas de Validación (Errores):**
-- `optimizar_anchoDeBandaCero_lanzaIllegalArgumentException` (límite: `0.0`)
 - `optimizar_anchoDeBandaNegativo_lanzaIllegalArgumentException` (ej: `-1.0`)
 
 **Pruebas para el Plan Básico:**
 - `optimizar_planBasicoAnchoBandaMenorA5_retorna480p` (ej: `4.9`)
-- `optimizar_planBasicoAnchoBandaExactamente5_retorna720p` (límite: `5.0`)
 - `optimizar_planBasicoAnchoBandaMayorA5_retorna720p` (ej: `6.0`)
 
 **Pruebas para el Plan Premium:**
 - `optimizar_planPremiumAnchoBandaMenorA5_retorna480p`
-- `optimizar_planPremiumAnchoBandaExactamente5_retorna720p` (límite: `5.0`)
 - `optimizar_planPremiumAnchoBandaMenorA10_retorna720p` (ej: `9.9`)
-- `optimizar_planPremiumAnchoBandaExactamente10_retorna1080p` (límite: `10.0`)
 - `optimizar_planPremiumAnchoBandaMenorA25_retorna1080p` (ej: `24.9`)
-- `optimizar_planPremiumAnchoBandaExactamente25_retorna4K` (límite: `25.0`)
 - `optimizar_planPremiumAnchoBandaMayorA25_retorna4K`
 
 </details>
@@ -86,8 +81,16 @@ Si tus pruebas **fallan**, significa que detectaron el cambio y el mutante fue *
 1. Ejecuta en tu terminal: `mvn pitest:mutationCoverage`
 2. Ve a la carpeta `target/pit-reports/` y abre el `index.html` en tu navegador.
 3. Observa la cobertura de línea (Line Coverage) y la cobertura de mutación (Mutation Coverage).
-4. **Reto:** Añade o mejora tus pruebas en `OptimizadorCalidadVideoTest` hasta lograr **100% de Mutation Coverage**.
-   > **💡 Pista:** PITest genera mutantes que cambian las condiciones de frontera (ej. cambiar `>=` por `>`). Para matarlos a todos, asegúrate de probar con los **valores límite exactos** (0.0, 5.0, 10.0 y 25.0).
+4. **Reto:** Cuando veas que tu Mutation Coverage no es 100%, descubre qué pruebas **faltan** en `OptimizadorCalidadVideoTest` y añádelas hasta lograr el **100% de Mutation Coverage**.
+   > **💡 Pista (¡Lee esto si te estancas!):** PITest genera mutantes que cambian las condiciones de frontera (ej. cambiar `>=` por `>`). Para matarlos a todos, necesitas crear pruebas adicionales con los **valores límite exactos** (0.0, 5.0, 10.0 y 25.0).
+   > Implementa exactamente estas pruebas:
+   > - `optimizar_anchoDeBandaCero_lanzaIllegalArgumentException` (0.0)
+   > - `optimizar_planBasicoAnchoBandaExactamente5_retorna720p` (5.0)
+   > - `optimizar_planPremiumAnchoBandaExactamente5_retorna720p` (5.0)
+   > - `optimizar_planPremiumAnchoBandaExactamente10_retorna1080p` (10.0)
+   > - `optimizar_planPremiumAnchoBandaExactamente25_retorna4K` (25.0)
+   > 
+   > ¡Añádelas y vuelve a ejecutar!
 
 ---
 
