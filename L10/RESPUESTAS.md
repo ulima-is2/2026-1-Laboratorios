@@ -14,14 +14,12 @@
 - **Resultado:** (Ej: 3 + 1 = 4)
 
 ### 1.2) Caminos Independientes
-*(Lista aquí los 6 caminos encontrados en tu Grafo de Flujo)*
+*(Lista aquí los caminos independientes encontrados en tu Grafo de Flujo según tu cálculo anterior)*
 
 - Camino 1: Inicio -> B(Sí) -> Retorna RECHAZADO_EDAD *(Ej: edad = 17)*
 - Camino 2: 
 - Camino 3: 
-- Camino 4: 
-- Camino 5: 
-- Camino 6: 
+- ... *(Agrega los renglones necesarios)*
 
 ---
 

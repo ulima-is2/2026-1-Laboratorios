@@ -58,7 +58,7 @@ flowchart TD
    - **Cálculo:** `2 + 1 = 3` 
    - **Resultado:** La complejidad es **3**, lo que significa que necesitarás un mínimo de 3 casos de prueba para cubrir todas las rutas de este método.
    </details>
-2. **Caminos Independientes:** Lista los **6** caminos independientes obtenidos a partir del Grafo de Flujo en el archivo [RESPUESTAS.md](./RESPUESTAS.md).
+2. **Caminos Independientes:** Lista los caminos independientes obtenidos a partir del Grafo de Flujo en el archivo [RESPUESTAS.md](./RESPUESTAS.md).
 3. **Casos de Prueba (JUnit 5):** Abre `EvaluadorCreditoTest.java`. Verás que ya te hemos regalado **2 tests resueltos**. Tu tarea es implementar los **4 restantes** usando `@Test`.
    - Ejecuta las pruebas mediante Maven: `mvn test` o desde tu IDE para asegurar que todo pasa correctamente.
 
