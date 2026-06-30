@@ -8,7 +8,7 @@ public class EvaluadorCreditoTest {
     private final EvaluadorCredito evaluador = new EvaluadorCredito();
 
     // ==========================================
-    // TESTS REGALADOS (2 resueltos)
+    // TESTS DE EJEMPLOS
     // ==========================================
 
     @Test
@@ -26,7 +26,7 @@ public class EvaluadorCreditoTest {
     }
     
     // ==========================================
-    // TUS TESTS (4 pendientes)
+    // TESTS PENDIENTES DE IMPLEMENTAR
     // ==========================================
 
     @Test
