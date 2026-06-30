@@ -2,6 +2,66 @@
 
 ---
 
+## Ejercicio 0: 
+
+Trabajar con aplicación web (API):
+
+- [https://github.com/jsatch/2026-1.API_Test_Carga](https://github.com/jsatch/2026-1.API_Test_Carga)
+
+
+### Paso 1 — Crear el Test Plan 
+
+1. Abrir JMeter (`jmeter.bat` en Windows o `./jmeter.sh` en Linux/Mac, dentro de la carpeta `bin/`).
+2. Clic derecho sobre **Test Plan** → `Add` → `Threads (Users)` → **Thread Group**.
+3. Renombrar el Thread Group como `Usuarios Concurrentes`.
+
+### Paso 2 — Configurar el Thread Group (0:20 – 0:25)
+
+Configurar los siguientes parámetros y **registrar en su informe el porqué de cada valor elegido**:
+
+| Parámetro | Valor sugerido | Significado |
+|---|---|---|
+| Number of Threads (users) | 20 | Usuarios virtuales simulados |
+| Ramp-up period (seconds) | 10 | Tiempo en que JMeter "enciende" gradualmente todos los hilos |
+| Loop Count | 5 | Veces que cada usuario repite la petición |
+
+### Paso 3 — Agregar el HTTP Request Sampler
+
+1. Clic derecho sobre el Thread Group → `Add` → `Sampler` → **HTTP Request**.
+2. Configurar:
+   - **Server Name or IP:** `localhost` (o el host de su aplicación)
+   - **Port:** `8080` (o el puerto correspondiente)
+   - **Method:** `GET`
+   - **Path:** `/api/estudiantes` (o el endpoint de su propia aplicación)
+
+### Paso 4 — Agregar Listeners
+
+Sobre el Thread Group, agregar dos listeners:
+
+1. `Add` → `Listener` → **View Results Tree** (permite inspeccionar petición/respuesta individual — útil para depurar).
+2. `Add` → `Listener` → **Summary Report** (entrega métricas agregadas: promedio, mínimo, máximo, % error, throughput).
+
+### Paso 5 — Ejecutar la prueba
+
+1. Guardar el Test Plan (`Ctrl+S`).
+2. Ejecutar con el botón ▶ (Start).
+3. Observar en tiempo real cómo se llenan los listeners.
+
+
+### Paso 6 — Analizar resultados
+
+En el **Summary Report**, identificar y registrar:
+
+| Métrica | ¿Qué indica? |
+|---|---|
+| **# Samples** | Total de peticiones ejecutadas |
+| **Average** | Tiempo de respuesta promedio (ms) |
+| **Min / Max** | Rango de tiempos de respuesta |
+| **Error %** | Porcentaje de peticiones fallidas |
+| **Throughput** | Peticiones procesadas por segundo |
+
+---
+
 ## Ejercicio 1: Pruebas de Caja Blanca (Coverage y Caminos Independientes)
 
 > **¿Qué son las Pruebas de Caja Blanca?**  
